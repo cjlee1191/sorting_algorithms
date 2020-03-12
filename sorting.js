@@ -1,4 +1,10 @@
-var array = [10, 90, 24, 76, 73, 43, 3, 100, 6, 45, 23, 5, 78, 231, 57, 121]
+var array = []
+
+for(let i = 0; i < 20; i++){
+    array.push(Math.floor(Math.random() * 1000));
+}
+
+
 //BUBBLE SORT 
 //time complexity O(n^2)
 
@@ -111,8 +117,6 @@ var array = [10, 90, 24, 76, 73, 43, 3, 100, 6, 45, 23, 5, 78, 231, 57, 121]
 
 // console.log("Merge Sort **********************")
 // console.log(mergeSort(array))
-
-
 
 
 

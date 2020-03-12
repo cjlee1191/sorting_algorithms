@@ -2,104 +2,120 @@ var array = [10, 90, 24, 76, 73, 43, 3, 100, 6, 45, 23, 5, 78, 231, 57, 121]
 //BUBBLE SORT 
 //time complexity O(n^2)
 
-function bubbleSort(arr){
-for(var i = arr.length; i > 0; i--) {
-    for(var j = 0; j < i - 1; j++){
-        if(arr[j] > arr[j + 1]){
-            var temp = arr[j];
-            arr[j] = arr[j + 1];
-            arr[j + 1] = temp;
-        }
-    }
-}
-    return arr;
-}
+// function bubbleSort(arr){
+// for(var i = arr.length; i > 0; i--) {
+//     for(var j = 0; j < i - 1; j++){
+//         if(arr[j] > arr[j + 1]){
+//             var temp = arr[j];
+//             arr[j] = arr[j + 1];
+//             arr[j + 1] = temp;
+//         }
+//     }
+// }
+//     return arr;
+// }
 
-console.log("Bubble Sort **********************")
-console.log(bubbleSort(array))
+// console.log("Bubble Sort **********************")
+// console.log(bubbleSort(array))
 
 
 
 //SELECTION SORT
 //time complexity O(n^2)
-function selectionSort(arr){
-    for(let i = 0; i < arr.length; i++){
-        var lowest = i;
-        for(var j = i + 1; j < arr.length; j++){
-           if(arr[j] < arr[lowest]){
-               lowest = j;
-           }
-        }
-        var temp = arr[i];
-        arr[i] = arr[lowest];
-        arr[lowest] = temp;
-    }
 
-    return arr;
-}
 
-console.log("Selection Sort **********************")
-console.log(selectionSort(array))
+// function selectionSort(arr){
+//     for(let i = 0; i < arr.length; i++){
+//         var lowest = i;
+//         for(var j = i + 1; j < arr.length; j++){
+//            if(arr[j] < arr[lowest]){
+//                lowest = j;
+//            }
+//         }
+//         var temp = arr[i];
+//         arr[i] = arr[lowest];
+//         arr[lowest] = temp;
+//     }
+
+//     return arr;
+// }
+
+// console.log("Selection Sort **********************")
+// console.log(selectionSort(array))
+
+
+
 
 
 //INSERTION SORT 
 //time complexity O(n^2)
 
-function insertionSort(arr){
-    for(var i = 1; i < arr.length; i++){
-        var currentVal = arr[i];
-        for(var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
-           arr[j + 1] = arr[j]
-        }
-      arr[j + 1] = currentVal;
-    }
-    return arr;
-}
+// function insertionSort(arr){
+//     for(var i = 1; i < arr.length; i++){
+//         var currentVal = arr[i];
+//         for(var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+//            arr[j + 1] = arr[j]
+//         }
+//       arr[j + 1] = currentVal;
+//     }
+//     return arr;
+// }
 
-console.log("Insertion Sort **********************")
-console.log(insertionSort(array));
+// console.log("Insertion Sort **********************")
+// console.log(insertionSort(array));
+
+
+
+
 
 
 //MERGE SORT
 //splits array into 1 or 0 pieces then reconstructs sorted arrays 
 //time complexity O(n log n)
 //merge sort array merging helper function for 2 sorted arrays
-function merge(arr1, arr2) {
-    let results = [];
-    let i = 0;
-    let j = 0;
-    while(i < arr1.length && j < arr2.length){
-        if(arr2[j] > arr1[i]){
-            results.push(arr1[i]);
-            i++;
-        } else {
-            results.push(arr2[j]);
-            j++;
-        }
-    }
-    while(i < arr1.length){
-        results.push(arr1[i]);
-        i++
-    }
-    while(j < arr2.length){
-        results.push(arr2[j]);
-        j++;
-    }
-
-    return results
-}
-
-function mergeSort(arr) {
-    if(arr.length <= 1) return arr;
-    let mid = Math.floor(arr.length/2);
-    let left = mergeSort(arr.slice(0, mid));
-    let right = mergeSort(arr.slice(mid));
-    return merge(left, right)
-}
 
 
-console.log("Merge Sort **********************")
-console.log(mergeSort(array))
+// function merge(arr1, arr2) {
+//     let results = [];
+//     let i = 0;
+//     let j = 0;
+//     while(i < arr1.length && j < arr2.length){
+//         if(arr2[j] > arr1[i]){
+//             results.push(arr1[i]);
+//             i++;
+//         } else {
+//             results.push(arr2[j]);
+//             j++;
+//         }
+//     }
+//     while(i < arr1.length){
+//         results.push(arr1[i]);
+//         i++
+//     }
+//     while(j < arr2.length){
+//         results.push(arr2[j]);
+//         j++;
+//     }
+
+//     return results
+// }
+
+// function mergeSort(arr) {
+//     if(arr.length <= 1) return arr;
+//     let mid = Math.floor(arr.length/2);
+//     let left = mergeSort(arr.slice(0, mid));
+//     let right = mergeSort(arr.slice(mid));
+//     return merge(left, right)
+// }
+
+
+// console.log("Merge Sort **********************")
+// console.log(mergeSort(array))
+
+
+
+
+
 
 
 //QUICK SORT
@@ -116,17 +132,15 @@ function pivot(arr, start = 0, end = arr.length+1){
     }
 
     let pivot = arr[start];
-    let swapIdx = start;
+    var swapIdx = start;
 
     for(let i = start; i < arr.length; i++){
-        if(pivot > arr[i]){
-        swapIndx++;
+        if(pivot > arr[i]) {
+        swapIdx++
         swap(arr, swapIdx, i)
-        
-        }
+    }
     }
     swap(arr, start, swapIdx)
-    console.log(swapIdx)
     return swapIdx
 }
 
@@ -140,4 +154,4 @@ function quickSort(arr, left = 0, right = arr.length - 1){
 }
 
 console.log("Quick Sort ***************************")
-console.log(quickSort())
+console.log(quickSort(array))
